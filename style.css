@@ -127,3 +127,16 @@ span {
 .reset:hover {
   background-color: #ff615f;
 }
+
+@media only screen and (max-width: 540px) {
+  .tittle {
+    font-size: 36px;
+    text-align: center;
+  }
+  .players {
+    font-size: 21px;
+  }
+  .reset {
+    padding: 6px 14px;
+  }
+}
