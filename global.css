@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Rubik+Iso&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  color: #dddddd;
+  font-family: "Aclonica", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(32, 34, 37);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tittle {
+  font-size: 58px;
+  color: #3ec5f4;
+  font-family: "Rubik Iso", cursive;
+}

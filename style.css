@@ -1,131 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Rubik+Iso&display=swap");
+@import url(./global.css);
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100vh;
-  color: #dddddd;
-  font-family: "Aclonica", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(32, 34, 37);
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.tittle {
-  font-size: 72px;
-  color: #3ec5f4;
-  font-family: "Rubik Iso", cursive;
-}
-
-.players {
+.start {
   width: 100%;
   height: 100px;
   display: flex;
-  justify-content: space-evenly;
-  margin: 20px;
-  font-size: 32px;
+}
+
+.start a {
+  color: white;
+  text-decoration: none;
   text-align: center;
-}
-.player1,
-.player2 {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   margin: auto;
+  font-size: 24px;
 }
 
-span {
-  margin-top: 14px;
+.start a:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
 }
 
-.main {
-  display: grid;
-  grid-template-rows: repeat(3, 100px);
-  grid-template-columns: repeat(3, 100px);
-  gap: 0px;
+.playerColor {
+  color: #3ec5f4;
 }
 
-.empty {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+.cpuColor {
+  color: #ff615f;
 }
 
-.empty:hover {
-  background-color: hsla(209, 78%, 79%, 0.13);
-}
-
-.empty:nth-child(-1n + 6) {
-  border-bottom: 6px solid rgb(221, 221, 221);
-}
-
-.empty:nth-child(1n + 2):not(:nth-child(4)):not(:nth-child(7)) {
-  border-left: 4px solid rgb(221, 221, 221);
-  border-radius: 10px;
-}
-
-.o,
-.x {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 60px;
-}
-
-.o {
-  background-image: url(./images/o.png);
-}
-.x {
-  background-image: url(./images/x.png);
-}
-
-.circle {
-  color: #fb4264;
-  text-shadow: 0 0 3vw #f40a35;
-  animation: circle 1s ease infinite;
-  -moz-animation: circle 1s ease infinite;
-  -webkit-animation: circle 1s ease infinite;
-}
-
-@keyframes circle {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16, 0 0 10vw #fa1c16, 0 0 0.4vw #fed128, 0.3vw 0.3vw 0.1vw #806914;
-    color: #fed128;
-  }
-  50% {
-    text-shadow: 0 0 0.3vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #800e0b, 0 0 5vw #800e0b, 0 0 0.2vw #800e0b, 0.3vw 0.3vw 0.1vw #40340a;
-    color: #806914;
-  }
-}
-
-.reset {
-  padding: 8px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 34px;
-  color: #fefefe;
-  font-size: 18px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background-color: #3ec5f4;
-  border: 0;
-  user-select: none;
-}
-.reset:hover {
-  background-color: #ff615f;
+.version {
+  position: absolute;
+  font-family: monospace;
+  bottom: 40px;
 }
 
 @media only screen and (max-width: 540px) {
@@ -133,8 +38,9 @@ span {
     font-size: 36px;
     text-align: center;
   }
-  .players {
-    font-size: 21px;
+  .start {
+    flex-direction: column;
+    margin-top: 20px;
   }
   .reset {
     padding: 6px 14px;

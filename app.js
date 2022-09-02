@@ -8,6 +8,8 @@ const gameContainer = document.querySelector(".main"),
 
 const o = "o";
 const x = "x";
+const turn = "circle";
+let urlControl = window.location.pathname;
 
 gameContainer.addEventListener("click", addElement);
 reset.addEventListener("click", () => {
@@ -16,32 +18,45 @@ reset.addEventListener("click", () => {
 });
 
 function addElement(e) {
-  let o = document.querySelectorAll(".o").length;
-  let x = document.querySelectorAll(".x").length;
-
+  let oLengt = document.querySelectorAll(".o").length;
+  let xLengt = document.querySelectorAll(".x").length;
   let raund = e.target;
 
-  if (o < x && e.target.className === "empty") {
+  if (oLengt < xLengt && e.target.className === "empty" && urlControl == "/PlayerVs.html") {
     addO(raund);
-    player2.firstElementChild.classList.remove("circle");
-    player1.firstElementChild.classList.add("circle");
+    player2.firstElementChild.classList.remove(turn);
+    player1.firstElementChild.classList.add(turn);
     winControl("o", "Player 2", score2);
   }
-  if (x <= o && e.target.className === "empty") {
+  if (xLengt <= oLengt && e.target.className === "empty") {
     addX(raund);
-    player1.firstElementChild.classList.remove("circle");
-    player2.firstElementChild.classList.add("circle");
+    player1.firstElementChild.classList.remove(turn);
+    player2.firstElementChild.classList.add(turn);
     winControl("x", "Player 1", score1);
   }
   drawControl();
+  cpuMove();
 }
 
-function addO(e) {
-  e.className += " o";
+function cpuMove() {
+  let oLengt = document.querySelectorAll(".o").length;
+  let xLengt = document.querySelectorAll(".x").length;
+  setTimeout(() => {
+    if (oLengt < xLengt && urlControl == "/cpuVs.html") {
+      let notXO = document.querySelectorAll(".main .empty:not(.x, .o)");
+      let randomNumber = Math.floor(Math.random() * notXO.length);
+      notXO[randomNumber].classList.add("o");
+      player2.firstElementChild.classList.remove(turn);
+      player1.firstElementChild.classList.add(turn);
+      winControl("o", "CPU", score2);
+    }
+  }, 100);
+
+  drawControl();
 }
-function addX(e) {
-  e.className += " x";
-}
+
+addO = (e) => (e.className += " o");
+addX = (e) => (e.className += " x");
 
 function winControl(e, name, score) {
   if (emptys[0].classList.contains(e) && emptys[1].classList.contains(e) && emptys[2].classList.contains(e)) {
@@ -96,8 +111,8 @@ function resetBoard() {
     e.classList.remove("x");
     e.classList.remove("o");
   });
-  player2.firstElementChild.classList.remove("circle");
-  player1.firstElementChild.classList.add("circle");
+  player2.firstElementChild.classList.remove(turn);
+  player1.firstElementChild.classList.add(turn);
 }
 
 function resetScore() {
