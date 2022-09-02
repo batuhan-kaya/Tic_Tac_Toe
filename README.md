@@ -4,7 +4,10 @@ The tic tac toe game that I built the algorithm myself without examining the sam
 [Live Demo](https://batuhan-tic-tac-toe.vercel.app//)
 
 **Screenshot**
+![Screenshot](https://i.ibb.co/NnWWWKm/startpage.png)
 ![Screenshot](https://i.ibb.co/RHmysfb/tictactoe-game.png)
+
+
 
 **Languages used**
 
